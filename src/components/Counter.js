@@ -12,7 +12,7 @@ const Counter = () => {
     }
   }
   
-  const toggleView = () => dispatch(counterSliceActions.toggleView());
+  const toggleView = () => dispatch(counterSliceActions.toggleView()); // toggleView() will return { type: 'counterSlice/toggleView', payload: undefined }
   return (
     <div>
       { showCount &&

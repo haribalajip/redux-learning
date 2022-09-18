@@ -1,7 +1,7 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 const counterSlice = createSlice({
-  name: 'counterSlice', // can be of any name
+  name: 'counterSliceA', // can be of any name, used by redux toolkit to name the action type. 
   initialState: { count: 0, showCount:true },
   reducers: {
     increment(state) {

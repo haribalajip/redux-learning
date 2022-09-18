@@ -1,8 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { counterSliceActions } from '../store/store';
+import { counterSliceActions } from '../store/counterSlice';
 const Counter = () => {
-  let count = useSelector(state => state.count);
-  let showCount = useSelector(state => state.showCount);
+  let count = useSelector(state => {
+    return state.counter.count
+  }); // because in configStore 'counter' is the key
+  let showCount = useSelector(state => state.counter.showCount);
   let dispatch = useDispatch();
   const handleClick = (addition = true, value) => {
     if (addition) {

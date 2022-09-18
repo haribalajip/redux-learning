@@ -1,4 +1,4 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const counterSlice = createSlice({
   name: 'counterSliceA', // can be of any name, used by redux toolkit to name the action type. 
@@ -22,9 +22,5 @@ const counterSlice = createSlice({
   }
 })
 
+export const counterSliceReducer = counterSlice.reducer;
 export const counterSliceActions = counterSlice.actions;
-
-export const store = configureStore({
-  reducer: counterSlice.reducer
-});
-

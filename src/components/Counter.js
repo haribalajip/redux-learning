@@ -1,17 +1,18 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { counterSliceActions } from '../store/store';
 const Counter = () => {
   let count = useSelector(state => state.count);
   let showCount = useSelector(state => state.showCount);
   let dispatch = useDispatch();
   const handleClick = (addition = true) => {
     if (addition) {
-      dispatch({ type: 'increment' })
+      dispatch(counterSliceActions.increment())
     } else {
-      dispatch({ type: 'decrement' })
+      dispatch(counterSliceActions.decrement())
     }
   }
   
-  const toggleView = () => dispatch({ type: 'toggle' })
+  const toggleView = () => dispatch(counterSliceActions.toggleView());
   return (
     <div>
       { showCount &&

@@ -4,9 +4,13 @@ const Counter = () => {
   let count = useSelector(state => state.count);
   let showCount = useSelector(state => state.showCount);
   let dispatch = useDispatch();
-  const handleClick = (addition = true) => {
+  const handleClick = (addition = true, value) => {
     if (addition) {
-      dispatch(counterSliceActions.increment())
+      if (value) {
+        dispatch(counterSliceActions.increment({ count: 10 }))
+      } else {
+        dispatch(counterSliceActions.increment())
+      }
     } else {
       dispatch(counterSliceActions.decrement())
     }
@@ -22,6 +26,9 @@ const Counter = () => {
       }
       <button onClick={handleClick}>
         Increment
+      </button>
+      <button onClick={handleClick.bind(this, true, 10)}>
+        Increment by 10
       </button>
       <button onClick={handleClick.bind(this, false)}>
         Decrement
